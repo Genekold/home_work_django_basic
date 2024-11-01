@@ -1,0 +1,130 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+        "name": "Мясо",
+        "description": "Мясо — незаменимый источник животного белка, который является основным строительным материалом для организма."
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 6,
+    "fields": {
+        "name": "Рыба",
+        "description": "Подобно мясу, рыба является источником незаменимых строительных белков, а также ряда незаменимых минеральных веществ и витаминов."
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 7,
+    "fields": {
+        "name": "Фрукты",
+        "description": " По содержанию различных веществ в составе данная группа выделяется повышенным содержанием природных сахаров, минеральных веществ, витаминов и полезных пищевых волокон."
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "Свинина",
+        "description": "Жирное мясо",
+        "photo": "",
+        "category": 5,
+        "price": 500.0,
+        "created_at": "2024-10-10",
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Говядина",
+        "description": "Нежирное мясо",
+        "photo": "",
+        "category": 5,
+        "price": 600.0,
+        "created_at": "2024-10-05",
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Курица",
+        "description": "Мясо птицы",
+        "photo": "",
+        "category": 5,
+        "price": 350.0,
+        "created_at": "2024-10-13",
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+        "name": "Судак",
+        "description": "Речная белая рыба",
+        "photo": "",
+        "category": 6,
+        "price": 400.0,
+        "created_at": "2024-10-15",
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "name": "Форель",
+        "description": "Красная рыба рыба",
+        "photo": "",
+        "category": 6,
+        "price": 1500.0,
+        "created_at": "2024-10-21",
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+        "name": "Яблоки",
+        "description": "Плод яблони, который употребляется в пищу в свежем и запеченом виде, применяется  в кулинарии и для приготовления напитков.",
+        "photo": "",
+        "category": 7,
+        "price": 100.0,
+        "created_at": "2024-10-01",
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+        "name": "Груши",
+        "description": "Фрукт, растущий на грушевых деревьях, которые принадлежат к семейству розоцветных.",
+        "photo": "",
+        "category": 7,
+        "price": 200.0,
+        "created_at": "2024-09-20",
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+        "name": "Апельсины",
+        "description": "Самая распространённая цитрусовая культура во всех тропических и субтропических областях мира",
+        "photo": "",
+        "category": 7,
+        "price": 250.0,
+        "created_at": "2024-09-15",
+        "updated_at": null
+    }
+}
+]
