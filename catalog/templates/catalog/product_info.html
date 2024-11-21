@@ -1,0 +1,29 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="{{ product.photo | media_filter }}">
+                    <div class="card-body">
+                        <p class="card-text text-primary">{{ product.name }}</p>
+                        <p class="card-text text-danger-emphasis">{{ product.category}}</p>
+                        <p class="card-text text-danger">{{ product.price }} за кг.</p>
+                        <p class="card-text text-success">Дата упакования: {{ product.created_at }}.</p>
+                        <p class="card-text">{{ product.description }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary bg-primary text-white">
+                                    Купить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

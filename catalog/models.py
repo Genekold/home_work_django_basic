@@ -52,7 +52,8 @@ class Product(models.Model):
     )
 
     price = models.FloatField(
-        verbose_name="Цена за продукт", help_text="Введите цену за продукт"
+        verbose_name="Цена за продукт",
+        help_text="Введите цену за продукт"
     )
     created_at = models.DateField(
         blank=True,
@@ -61,7 +62,8 @@ class Product(models.Model):
         help_text="Введите дату создания",
     )
     updated_at = models.DateField(
-        blank=True, null=True, verbose_name="Дата последнего изменения"
+        blank=True, null=True,
+        verbose_name="Дата последнего изменения"
     )
 
     class Meta:
