@@ -13,8 +13,14 @@
                         <p class="card-text">{{ product.description | truncatechars:100 }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a type="button" class="btn btn-primary btn-sm"
+                                <a type="button" class="btn btn-primary btn-sm border border-dark"
                                    href="{% url 'catalog:product_detail' product.pk %}">Подробности
+                                </a>
+                                <a type="button" class="btn btn-primary btn-sm border border-dark"
+                                   href="{% url 'catalog:product_update' product.pk %}">Редактировать
+                                </a>
+                                <a type="button" class="btn btn-primary btn-sm border border-dark"
+                                   href="{% url 'catalog:product_delete' product.pk %}">Удалить
                                 </a>
                             </div>
                             <small class="text-body-secondary">Категория товара: {{ product.category }}</small>
