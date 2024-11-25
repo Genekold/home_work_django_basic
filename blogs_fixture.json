@@ -1,0 +1,50 @@
+[
+{
+    "model": "blogs.blog",
+    "pk": 1,
+    "fields": {
+        "title": "Москва",
+        "content": "Столица России!",
+        "preview": "blogs/photo/Москва.jpg",
+        "created_at": "2024-11-25",
+        "is_active": true,
+        "views_counter": 6
+    }
+},
+{
+    "model": "blogs.blog",
+    "pk": 2,
+    "fields": {
+        "title": "Санкт-Петербург",
+        "content": "Северная столица..",
+        "preview": "blogs/photo/Санкт_Петербург.jpg",
+        "created_at": "2024-11-24",
+        "is_active": true,
+        "views_counter": 2
+    }
+},
+{
+    "model": "blogs.blog",
+    "pk": 3,
+    "fields": {
+        "title": "Нижний Новгород",
+        "content": "Столица Поволжья..",
+        "preview": "blogs/photo/НижнийНовгород.jpg",
+        "created_at": "2024-11-25",
+        "is_active": true,
+        "views_counter": 16
+    }
+},
+{
+    "model": "blogs.blog",
+    "pk": 5,
+    "fields": {
+        "title": "Заволжье",
+        "content": "Мой город в котором я живу.",
+        "preview": "blogs/photo/Заволжье_N1rHjVT.jpg",
+        "created_at": "2024-11-25",
+        "is_active": true,
+        "views_counter": 4
+    }
+}
+]
