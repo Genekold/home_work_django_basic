@@ -1,0 +1,119 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 12,
+    "fields": {
+        "name": "Говядина",
+        "description": "Нежирное мясо.",
+        "photo": "product/photo/Говядина.jpg",
+        "category": 5,
+        "price": 500.0,
+        "created_at": "2024-11-12",
+        "updated_at": "2024-11-13"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 13,
+    "fields": {
+        "name": "Свинина",
+        "description": "Жирное мясо.",
+        "photo": "product/photo/Свинина.jpg",
+        "category": 5,
+        "price": 400.0,
+        "created_at": "2024-11-12",
+        "updated_at": "2024-11-13"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 14,
+    "fields": {
+        "name": "Курица",
+        "description": "Мясо птицы.",
+        "photo": "product/photo/Курица.jpg",
+        "category": 5,
+        "price": 300.0,
+        "created_at": "2024-11-12",
+        "updated_at": "2024-11-13"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 15,
+    "fields": {
+        "name": "Форель",
+        "description": "Красная рыба рыба.",
+        "photo": "product/photo/Форель.jpg",
+        "category": 6,
+        "price": 1000.0,
+        "created_at": "2024-11-12",
+        "updated_at": "2024-11-13"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 16,
+    "fields": {
+        "name": "Морской окунь",
+        "description": "Морская рыба.",
+        "photo": "product/photo/Морской_окунь.jpg",
+        "category": 6,
+        "price": 350.0,
+        "created_at": "2024-11-12",
+        "updated_at": "2024-11-13"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 17,
+    "fields": {
+        "name": "Судак",
+        "description": "\"Речная белая рыба.",
+        "photo": "product/photo/Судак.jpg",
+        "category": 6,
+        "price": 250.0,
+        "created_at": "2024-11-12",
+        "updated_at": "2024-11-13"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 18,
+    "fields": {
+        "name": "Яблоки",
+        "description": "Плод яблони, который употребляется в пищу в свежем и запеченном виде, применяется  в кулинарии и для приготовления напитков.",
+        "photo": "product/photo/Яблоки.jpg",
+        "category": 7,
+        "price": 100.0,
+        "created_at": "2024-11-12",
+        "updated_at": "2024-11-13"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 19,
+    "fields": {
+        "name": "Груши",
+        "description": "Фрукт, растущий на грушевых деревьях, которые принадлежат к семейству розоцветных.",
+        "photo": "product/photo/Груши.jpg",
+        "category": 7,
+        "price": 200.0,
+        "created_at": "2024-11-12",
+        "updated_at": "2024-11-13"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 20,
+    "fields": {
+        "name": "Апельсины",
+        "description": "Самая распространённая цитрусовая культура во всех тропических и субтропических областях мира.",
+        "photo": "product/photo/Апельсины.jpg",
+        "category": 7,
+        "price": 200.0,
+        "created_at": "2024-11-12",
+        "updated_at": "2024-11-24"
+    }
+}
+]

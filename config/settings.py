@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv('.env')
+load_dotenv(override=True)
 
 NAME = os.getenv('NAME')
 USER = os.getenv('USER')
@@ -12,9 +12,9 @@ PORT = os.getenv('PORT')
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-8_(p!5qn!8duwxt#-iipws@2#%f+n+uob52d67&mzq)y0k+sf-'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = True
+DEBUG = True if os.getenv('DEBUG') == 'True' else False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog',
+    'blogs'
 ]
 
 MIDDLEWARE = [

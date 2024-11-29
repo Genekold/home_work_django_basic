@@ -60,10 +60,12 @@ class Product(models.Model):
         null=True,
         verbose_name="Дата создания",
         help_text="Введите дату создания",
+        auto_now_add=True
     )
     updated_at = models.DateField(
         blank=True, null=True,
-        verbose_name="Дата последнего изменения"
+        verbose_name="Дата последнего изменения",
+        auto_now=True
     )
 
     class Meta:

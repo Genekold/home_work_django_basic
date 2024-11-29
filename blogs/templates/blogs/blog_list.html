@@ -1,0 +1,33 @@
+{% extends 'blogs/base.html' %}
+{% load static %}
+{% load my_tags_blog %}
+{% block content %}
+<div class="row mb-2">
+    {% for blog in object_list %}
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4">
+            <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0">{{ blog.title }}</h3>
+                <div class="mb-1 text-body-secondary">{{ blog.created_at }}</div>
+                <p class="card-text mb-auto">{{ blog.content | truncatechars:50 }}</p>
+                <a class="icon-link gap-1 icon-link-hover stretched-link" href="{% url 'blogs:blog_detail' blog.id %}">
+                    Читать
+                    <i class="bi bi-book ms-2"></i>
+                </a>
+                <a href="{% url 'blogs:blog_update' blog.id %}" class="icon-link gap-1 icon-link-hover stretched-link">
+                    Редактировать
+                    <i class="bi bi-pen ms-2"></i>
+                </a>
+                <a href="{% url 'blogs:blog_delete' blog.id %}" class="icon-link gap-1 icon-link-hover stretched-link text-info">
+                    Удалить
+                    <i class="bi bi-trash3 ms-2"></i>
+                </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img src="{{ blog.preview | media_filter_blog }}">
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

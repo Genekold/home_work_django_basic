@@ -1,0 +1,21 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <form class="row" method="post" enctype="multipart/form-data">
+                <div class="card">
+                    <p class="card-text">Действительно хотите удалить: {{ object.name }}</p>
+                    <div class="card-boby mt-3">
+                        {% csrf_token %}
+                    </div>
+                    <button class="btn btn-danger" type="submit">Удалить</button>
+                    <a type="button" class="btn btn-primary btn-sm border"
+                       href="{% url 'catalog:product_list' %}">Отменить
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
