@@ -4,16 +4,14 @@ from django.forms import ModelForm
 from catalog.models import Product
 
 
-class StyleForm:
+class StyleFormProduct:
     def __init__(self, *args, **kwargs):
-        super(StyleForm, self).__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Введите назавние продукта'
-        })
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
 
 
-class ProductForm(ModelForm, StyleForm):
+class ProductForm(StyleFormProduct, ModelForm):
     EXCEPTION_WORDS = [
         'казино',
         'биржа',
@@ -30,29 +28,29 @@ class ProductForm(ModelForm, StyleForm):
         model = Product
         fields = "__all__"
 
-    def __init__(self, *args, **kwargs):
-        super(ProductForm, self).__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Введите назавние продукта'
-        })
-        self.fields['description'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Введите описание продукта',
-            'row': 3
-        })
-        self.fields['photo'].widget.attrs.update({
-            'class': 'form-control'
-        })
+    # def __init__(self, *args, **kwargs):
+    #     super(ProductForm, self).__init__(*args, **kwargs)
+    #     self.fields['name'].widget.attrs.update({
+    #         'class': 'form-control',
+    #         'placeholder': 'Введите назавние продукта'
+    #     })
+    #     self.fields['description'].widget.attrs.update({
+    #         'class': 'form-control',
+    #         'placeholder': 'Введите описание продукта',
+    #         'row': 3
+    #     })
+    #     self.fields['photo'].widget.attrs.update({
+    #         'class': 'form-control'
+    #     })
 
-        self.fields['category'].widget.attrs.update({
-            'class': 'form-control'
-        })
-
-        self.fields['price'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Введите цену продукта'
-        })
+        # self.fields['category'].widget.attrs.update({
+        #     'class': 'form-control'
+        # })
+        #
+        # self.fields['price'].widget.attrs.update({
+        #     'class': 'form-control',
+        #     'placeholder': 'Введите цену продукта'
+        # })
 
     def clean(self):
         cleaned_data = super().clean()
