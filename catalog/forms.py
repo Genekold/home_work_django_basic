@@ -28,30 +28,6 @@ class ProductForm(StyleFormProduct, ModelForm):
         model = Product
         fields = "__all__"
 
-    # def __init__(self, *args, **kwargs):
-    #     super(ProductForm, self).__init__(*args, **kwargs)
-    #     self.fields['name'].widget.attrs.update({
-    #         'class': 'form-control',
-    #         'placeholder': 'Введите назавние продукта'
-    #     })
-    #     self.fields['description'].widget.attrs.update({
-    #         'class': 'form-control',
-    #         'placeholder': 'Введите описание продукта',
-    #         'row': 3
-    #     })
-    #     self.fields['photo'].widget.attrs.update({
-    #         'class': 'form-control'
-    #     })
-
-        # self.fields['category'].widget.attrs.update({
-        #     'class': 'form-control'
-        # })
-        #
-        # self.fields['price'].widget.attrs.update({
-        #     'class': 'form-control',
-        #     'placeholder': 'Введите цену продукта'
-        # })
-
     def clean(self):
         cleaned_data = super().clean()
         name = cleaned_data.get('name')
