@@ -1,6 +1,7 @@
 from django.forms import ModelForm, BooleanField
 
-from blogs.models import Blog
+from blogs.models import Blog, Autor
+
 
 class StyleFormBlog:
     def __init__(self, *args, **kwargs):
@@ -11,4 +12,10 @@ class StyleFormBlog:
 class BlogsForm(StyleFormBlog, ModelForm):
     class Meta:
         model = Blog
-        exclude = ('views_counter',)
+        exclude = ('views_counter', 'autor')
+
+
+class AutorForm(StyleFormBlog, ModelForm):
+    class Meta:
+        model = Autor
+        exclude = '__all__'

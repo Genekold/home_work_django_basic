@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import User
+
 
 class Blog(models.Model):
     """Модель объекта Blog"""
@@ -43,6 +45,14 @@ class Blog(models.Model):
         help_text="Введите количество просмотров",
         default=0
     )
+    creator = models.ForeignKey(
+        User,
+        verbose_name='Автор статьи',
+        help_text='Укажиете автора статьи',
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL
+    )
 
     def __str__(self):
         return self.title
@@ -50,3 +60,31 @@ class Blog(models.Model):
     class Meta:
         verbose_name = "Блог"
         verbose_name_plural = "Блоги"
+
+
+class Autor(models.Model):
+    autor = models.ForeignKey(
+        Blog,
+        related_name='autor',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name='Автор статьи'
+    )
+    first_name = models.CharField(
+        max_length=50,
+        verbose_name="Имя автора",
+        help_text="Введите имя автора",
+        blank=True,
+        null=True,
+        default=None
+    )
+    last_name = models.CharField(
+        max_length=50,
+        verbose_name="Фамилия автора",
+        help_text="Введите фамилию автора",
+        blank=True,
+        null=True,
+        default=None
+    )
+
