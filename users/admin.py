@@ -4,4 +4,4 @@ from users.models import User
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    fields = ('autor',)
+    list_display = ('id', 'email')

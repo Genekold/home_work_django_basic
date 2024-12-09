@@ -9,13 +9,20 @@ class StyleFormBlog:
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
 
+
 class BlogsForm(StyleFormBlog, ModelForm):
     class Meta:
         model = Blog
-        exclude = ('views_counter', 'autor')
+        exclude = ('views_counter', 'creator')
 
 
-class AutorForm(StyleFormBlog, ModelForm):
+class BlogsModeratorForm(StyleFormBlog, ModelForm):
+    class Meta:
+        model = Blog
+        fields = ('is_active',)
+
+
+class AutorForm(ModelForm):
     class Meta:
         model = Autor
-        exclude = '__all__'
+        fields = "__all__"

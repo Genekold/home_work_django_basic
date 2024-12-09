@@ -1,26 +1,43 @@
 {% extends 'blogs/base.html' %}
 {% load my_tags_blog %}
 {% block content %}
-<div class="row mb-2">
-    <div class="col-8">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static">
-                <h3 class="mb-0">{{ object.title }}</h3>
-                <h6 class="mb-0">Колличество просмотров: {{ object.views_counter }}</h6>
-                <a href="{% url 'blogs:blog_update' blog.id %}" class="icon-link gap-1 icon-link-hover">
-                    Редактировать
-                    <i class="bi bi-pen"></i>
-                </a>
-                <a href="{% url 'blogs:blog_delete' blog.id %}" class="icon-link gap-1 icon-link-hover text-info">
-                    Удалить
-                   <i class="bi bi-trash3"></i>
-                </a>
+<div class="container">
+    <div class="row">
+        <form class="row" enctype="multipart/form-data">
+            <div class="col-8">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{ object.title }}</h3>
+                        <h6 class="mb-0">Колличество просмотров: {{ object.views_counter }}</h6>
+                        <a href="{% url 'blogs:blog_update' blog.id %}" class="icon-link gap-1 icon-link-hover">
+                            Редактировать
+                            <i class="bi bi-pen"></i>
+                        </a>
+                        <a href="{% url 'blogs:blog_delete' blog.id %}"
+                           class="icon-link gap-1 icon-link-hover text-info">
+                            Удалить
+                            <i class="bi bi-trash3"></i>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block ps-4">
+                        <img src="{{ blog.preview | media_filter_blog }}">
+                    </div>
+                    <p class="card-text mb-auto ps-4 mt-3 pb-3">{{ blog.content }}</p>
+                </div>
             </div>
-            <div class="col-auto d-none d-lg-block ps-4">
-                <img src="{{ blog.preview | media_filter_blog }}">
+            <div class="col-4">
+                <div class="card">
+                    <p class="card-text text-center ">Автор</p>
+                    <div class="card-boby ms-2 me-2 mt-3">
+                        {{ formset.management_form }}
+                        {% for form in formset.forms %}
+                        {{ form.as_p }}
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
-            <p class="card-text mb-auto ps-4 mt-3 pb-3">{{ blog.content }}</p>
-        </div>
     </div>
+    </form>
+</div>
 </div>
 {% endblock %}
