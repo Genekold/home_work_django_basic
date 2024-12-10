@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.forms import inlineformset_factory
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -86,3 +87,13 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
 class BlogDeleteView(LoginRequiredMixin, DeleteView):
     model = Blog
     success_url = reverse_lazy("blogs:blog_list")
+
+    def form_valid(self, form):
+        success_url = self.get_success_url()
+        user = self.request.user
+        if user == self.object.creator or user.groups.filter(name='moderator').exists():
+            self.object.delete()
+            return HttpResponseRedirect(success_url)
+        raise PermissionDenied
+
+
