@@ -15,6 +15,7 @@
                     Читать
                     <i class="bi bi-book ms-2"></i>
                 </a>
+                {% if perms.blogs.can_unpublish_blog or user == blog.creator %}
                 <a href="{% url 'blogs:blog_update' blog.id %}" class="icon-link gap-1 icon-link-hover">
                     Редактировать
                     <i class="bi bi-pen ms-2"></i>
@@ -23,6 +24,7 @@
                     Удалить
                     <i class="bi bi-trash3 ms-2"></i>
                 </a>
+                {% endif %}
                 {% endif %}
             </div>
             <div class="col-auto d-none d-lg-block">
