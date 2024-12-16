@@ -4,11 +4,11 @@ from users.models import User
 
 
 class Command(BaseCommand):
-    help = 'Добавление тестовых продуктов в базу данных из фикстуры'
+    help = "Добавление тестовых продуктов в базу данных из фикстуры"
 
     def handle(self, *args, **kwargs):
 
         User.objects.all().delete()
 
-        call_command('loaddata', 'groups.json')
-        self.stdout.write(self.style.SUCCESS('Данные загружены'))
+        call_command("loaddata", "groups.json")
+        self.stdout.write(self.style.SUCCESS("Данные загружены"))

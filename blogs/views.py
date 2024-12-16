@@ -8,13 +8,14 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from blogs.forms import BlogsForm, AutorForm, BlogsModeratorForm
 from blogs.models import Blog, Autor
+from blogs.services import get_blog_from_cache
 
 
 class BlogListView(ListView):
     model = Blog
 
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = get_blog_from_cache()
         return queryset.filter(is_active=True)
 
 
@@ -29,8 +30,8 @@ class BlogDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        BlogForsetUpdate = inlineformset_factory(Blog, Autor, AutorForm, extra=1)
-        context_data['formset'] = BlogForsetUpdate(instance=self.object)
+        blog_formset_update = inlineformset_factory(Blog, Autor, AutorForm, extra=1)
+        context_data['formset'] = blog_formset_update(instance=self.object)
         return context_data
 
 
@@ -57,11 +58,11 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        BlogFormset = inlineformset_factory(Blog, Autor, AutorForm, extra=1)
+        blog_formset = inlineformset_factory(Blog, Autor, AutorForm, extra=1)
         if self.request.method == 'POST':
-            context_data['formset'] = BlogFormset(self.request.POST, instance=self.object)
+            context_data['formset'] = blog_formset(self.request.POST, instance=self.object)
         else:
-            context_data['formset'] = BlogFormset(instance=self.object)
+            context_data['formset'] = blog_formset(instance=self.object)
         return context_data
 
     def form_valid(self, form):
@@ -95,5 +96,3 @@ class BlogDeleteView(LoginRequiredMixin, DeleteView):
             self.object.delete()
             return HttpResponseRedirect(success_url)
         raise PermissionDenied
-
-
